@@ -1,21 +1,28 @@
-There are n people in a line queuing to buy tickets, where the 0th person is at the front of the line and the (n - 1)th person is at the back of the line.
-You are given a 0-indexed integer array of tickets of length n where the number of tickets that the ith person would like to buy is tickets[i].
-Each person takes exactly 1 second to buy a ticket. A person can only buy 1 ticket at a time and has to go back to the end of the line (which happens instantaneously) in order to buy more tickets. If a person does not have any tickets left to buy, the person will leave the line.
-Return the time taken for the person at position k (0-indexed) to finish buying tickets.(LEETCODE 682)
+You are keeping the scores for a baseball game with strange rules. At the beginning of the game, you start with an empty record.
+You are given a list of strings operations, where operations[i] is the ith operation you must apply to the record and is one of the following:
+●	An integer x.
+●	Record a new score of x.
+●	'+'.
+●	Record a new score that is the sum of the previous two scores.
+●	'D'.
+●	Record a new score that is the double of the previous score.
+●	'C'.
+●	Invalidate the previous score, removing it from the record.
+Return the sum of all the scores on the record after applying all the operations.
+The test cases are generated such that the answer and all intermediate calculations fit in a 32-bit integer and that all operations are valid.
  
 Example 1:
-Input: tickets = [2,3,2], k = 2
-Output: 6
-Explanation: 
-- In the first pass, everyone in the line buys a ticket and the line becomes [1, 2, 1].
-- In the second pass, everyone in the line buys a ticket and the line becomes [0, 1, 0].
-The person at position 2 has successfully bought 2 tickets and it took 3 + 3 = 6 seconds.
-
-Example 2:
-Input: tickets = [5,1,1,1], k = 0
-Output: 8
+Input: ops = ["5","2","C","D","+"]
+Output: 30
 Explanation:
-- In the first pass, everyone in the line buys a ticket and the line becomes [4, 0, 0, 0].
+"5" - Add 5 to the record, record is now [5].
+"2" - Add 2 to the record, record is now [5, 2].
+"C" - Invalidate and remove the previous score, record is now [5].
+"D" - Add 2 * 5 = 10 to the record, record is now [5, 10].
+"+" - Add 5 + 10 = 15 to the record, record is now [5, 10, 15].
+The total sum is 5 + 10 + 15 = 30.
+
+
 
 
 ------------------------------------------------------------------------------------------------------------->
